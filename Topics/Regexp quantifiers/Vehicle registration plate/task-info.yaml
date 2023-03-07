@@ -1,0 +1,18 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    import re
+
+
+    # put your regex in the variable template
+    template = ""
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10360#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Tue, 07 Mar 2023 14:07:05 UTC"
+record: -1
+submission_language: python3
