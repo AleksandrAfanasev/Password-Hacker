@@ -146,6 +146,12 @@ files:
         test.run_tests()
         test.stop_server()
   learner_created: false
-feedback_link: https://hyperskill.org/projects/80/stages/444/implement#comment
-status: Unchecked
-record: -1
+- name: passwords.txt
+  visible: true
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/7218#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 08 Mar 2023 14:20:02 UTC"
+record: 3

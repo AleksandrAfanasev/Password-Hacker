@@ -1,0 +1,13 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: "import re \n\nstring = input()\n#your code here"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/24235#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Wed, 08 Mar 2023 10:09:09 UTC"
+record: -1
+submission_language: python3
