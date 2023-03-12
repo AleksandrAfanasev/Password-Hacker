@@ -3,6 +3,7 @@ import sys
 import random
 import json
 from string import ascii_letters, digits
+import time
 
 
 abc = ascii_letters + digits
@@ -25,13 +26,15 @@ def random_password(client_socket, abc, start_password=''):
     for char in abc:
         message = json.dumps({"login": login, "password": start_password+char})
         client_socket.send(message.encode())
+        start = time.perf_counter()
         cli_response = json.loads(client_socket.recv(1024).decode())
-        if cli_response['result'] == 'Wrong password!':
-            continue
-        elif cli_response['result'] == 'Exception happened during login':
+        if cli_response['result'] != 'Connection success!':
+            end = time.perf_counter()
+            if end - start < 0.1:
+                continue
             start_password += char
             return random_password(client_socket, abc, start_password)
-        elif cli_response['result'] == 'Connection success!':
+        else:
             res = start_password + char
             return print(json.dumps({"login": login, "password": res}, indent=4)), exit()
 
@@ -48,8 +51,5 @@ with socket.socket() as client_socket:
         response = json.loads(client_socket.recv(1024).decode())
         if response['result'] == 'Wrong login!':
             continue
-        elif response['result'] in [
-            'Wrong password!',
-            'Exception happened during login'
-        ]:
+        else:
             random_password(client_socket, abc)
